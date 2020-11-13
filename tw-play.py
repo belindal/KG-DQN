@@ -97,8 +97,8 @@ def main():
         if args.state_fn:
             state_logger.info(json.dumps({
                 'facts': [Proposition.serialize(prop) for prop in env.state.facts],
-                'inventory': env.state.inventory,
-                'description': env.state.description,
+                'inventory': env.state.inventory.replace('\n\n', '\n'),
+                'description': env.state.description.replace('\n\n', '\n'),
             }))
 
     reward = 0
@@ -117,8 +117,8 @@ def main():
             if args.state_fn:
                 state_logger.info(json.dumps({
                     'facts': [Proposition.serialize(prop) for prop in env.state.facts],
-                    'inventory': env.state.inventory,
-                    'description': env.state.description,
+                    'inventory': env.state.inventory.replace('\n\n', '\n'),
+                    'description': env.state.description.replace('\n\n', '\n'),
                 }))
 
         if done:
